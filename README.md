@@ -1,33 +1,10 @@
 # tor_setings
 
-SOCKSPort 37.252.15.134:31100
+wget tor-0.4.7.13.tar.gz  https://www.torproject.org/download/tor/
 
-Log notice file /dev/null
-Log debug file /dev/null
+tar -xvf tor-0.4.7.13.tar.gz
+cd tor-0.4.7.13
 
-IPv6Exit 1
-
-RunAsDaemon 1
-
-BridgeRelay 0
-ExitRelay   0
-ORPort      0
-DirPort     0
-
-AvoidDiskWrites 1
-Sandbox 1 
-SafeSocks 1
-
-EnforceDistinctSubnets 1
-ClientDNSRejectInternalAddresses 1
-ServerDNSDetectHijacking 1
-GeoIPExcludeUnknown 1
-
-
-#запрет вход
-ExcludeExitNodes {ru},{ua}
-
-#выход  {de}, {fr}, {fi}, {nl}, {nz}, {no}, {ch}, {se}, {dk}, {ee}
-ExitNodes {NL}
-
-StrictNodes 1
+./configure
+make
+make install
